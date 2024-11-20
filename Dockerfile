@@ -37,12 +37,21 @@ FROM spark-base as pyspark
 COPY requirements/requirements.txt .
 RUN pip3 install -r requirements.txt
 
+
+
 # Setup Spark related environment variables
 ENV PATH="/opt/spark/sbin:/opt/spark/bin:${PATH}"
 ENV SPARK_MASTER="spark://spark-master:7077"
 ENV SPARK_MASTER_HOST spark-master
 ENV SPARK_MASTER_PORT 7077
 ENV PYSPARK_PYTHON python3
+
+# # Setup Spark related environment variables
+# ENV PATH="/opt/spark/sbin:/opt/spark/bin:${PATH}"
+# ENV SPARK_MASTER="spark://172.17.0.1:7077"
+# ENV SPARK_MASTER_HOST 172.17.0.1
+# ENV SPARK_MASTER_PORT 7077
+# ENV PYSPARK_PYTHON python3
 
 # Copy the default configurations into $SPARK_HOME/conf
 COPY conf/spark-defaults.conf "$SPARK_HOME/conf"

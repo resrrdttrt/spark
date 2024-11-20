@@ -23,7 +23,7 @@ run:
 	make down && docker-compose up
 
 run-scaled:
-	make down && docker-compose up --scale spark-worker=2 -d
+	make down && docker-compose up --build --scale spark-worker=1
 
 run-d:
 	make down && docker-compose up -d
@@ -46,6 +46,9 @@ stop-yarn:
 
 submit:
 	docker exec da-spark-master spark-submit --master spark://spark-master:7077 --deploy-mode client ./apps/$(app)
+
+submit-worker:
+	docker exec spark_spark-worker_1 spark-submit --master spark://spark-master:7077 --deploy-mode client ./apps/$(app)
 
 submit-da-book:
 	make submit app=data_analysis_book/$(app)
