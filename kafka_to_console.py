@@ -1,0 +1,74 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import from_json
+from pyspark.sql.types import *
+
+# Config variables
+KAFKA_BOOTSTRAP_SERVERS = "172.21.6.68:9092"
+KAFKA_TOPIC = "spark-consume"
+
+# Define schema for the Kafka message payload
+extrainfo_schema = StructType([
+    StructField("aircon", BooleanType(), True),
+    StructField("door", BooleanType(), True),
+    StructField("driverLicense", StringType(), True),
+    StructField("driverName", StringType(), True),
+    StructField("ignition", BooleanType(), True),
+    StructField("ts", LongType(), True)
+])
+
+message_schema = StructType([
+    StructField("id", StringType(), True),
+    StructField("status", StringType(), True),
+    StructField("speed", LongType(), True),
+    StructField("direction", LongType(), True),
+    StructField("geocoding", StringType(), True),
+    StructField("latitude", DoubleType(), True),
+    StructField("longitude", DoubleType(), True),
+    StructField("ts", LongType(), True),
+    StructField("plate_no", StringType(), True),
+    StructField("driver_name", StringType(), True),
+    StructField("driver_license", StringType(), True),
+    StructField("history", BooleanType(), True),
+    StructField("extrainfo", extrainfo_schema, True)
+])
+
+def main():
+    print("[INFO] Starting Spark job to consume from Kafka and print to terminal.")
+    print(f"[INFO] Kafka bootstrap servers: {KAFKA_BOOTSTRAP_SERVERS}")
+    print(f"[INFO] Kafka topic: {KAFKA_TOPIC}")
+
+    spark = SparkSession.builder \
+        .appName("KafkaToConsole") \
+        .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.13:3.5.0") \
+        .getOrCreate()
+
+    spark.sparkContext.setLogLevel("WARN")
+    print("[INFO] Spark session created.")
+
+    # Read from Kafka
+    print("[INFO] Reading from Kafka...")
+    kafka_df = spark.readStream \
+        .format("kafka") \
+        .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP_SERVERS) \
+        .option("subscribe", KAFKA_TOPIC) \
+        .option("startingOffsets", "latest") \
+        .load()
+    print("[INFO] Kafka DataFrame created.")
+
+    value_df = kafka_df.selectExpr("CAST(value AS STRING) as json_value")
+    print("[INFO] Extracted value as string from Kafka DataFrame.")
+    parsed_df = value_df.select(from_json("json_value", message_schema).alias("data")).select("data.*")
+    print("[INFO] Parsed JSON messages with schema.")
+
+    # Write to console
+    print("[INFO] Writing to console...")
+    query = parsed_df.writeStream \
+        .outputMode("append") \
+        .format("console") \
+        .start()
+
+    print("[INFO] Streaming query started. Waiting for termination...")
+    query.awaitTermination()
+
+if __name__ == "__main__":
+    main()

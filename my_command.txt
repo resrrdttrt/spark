@@ -1,4 +1,4 @@
 ./sbin/start-master.sh -h 172.17.0.1 -p 7077 --webui-port 9090
 ./sbin/start-worker.sh spark://172.17.0.1:7077 -c 2 -m 3G
 
-rsync -avz --exclude='env_*/' -e ssh vtrdev:/home/vht/duonghdt/ .
+rsync -avz --exclude='evn_*/' -e ssh vtrdev:/home/vht/duonghdt/ .

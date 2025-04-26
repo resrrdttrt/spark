@@ -1,0 +1,1125 @@
+:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /home/vht/.ivy2/cache
+The jars for the packages stored in: /home/vht/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+org.apache.hadoop#hadoop-aws added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-3740781f-9b52-481b-b3ff-a0cae1c0db98;1.0
+	confs: [default]
+	found org.apache.spark#spark-sql-kafka-0-10_2.13;3.5.0 in central
+	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;3.5.0 in central
+	found org.apache.kafka#kafka-clients;3.4.1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+	found org.slf4j#slf4j-api;2.0.7 in central
+	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+	found commons-logging#commons-logging;1.1.3 in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.scala-lang.modules#scala-parallel-collections_2.13;1.0.4 in central
+	found org.apache.commons#commons-pool2;2.11.1 in central
+	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+:: resolution report :: resolve 476ms :: artifacts dl 13ms
+	:: modules in use:
+	com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	commons-logging#commons-logging;1.1.3 from central in [default]
+	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.13;3.5.0 from central in [default]
+	org.apache.spark#spark-token-provider-kafka-0-10_2.13;3.5.0 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.scala-lang.modules#scala-parallel-collections_2.13;1.0.4 from central in [default]
+	org.slf4j#slf4j-api;2.0.7 from central in [default]
+	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   15  |   0   |   0   |   0   ||   15  |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-3740781f-9b52-481b-b3ff-a0cae1c0db98
+	confs: [default]
+	0 artifacts copied, 15 already retrieved (0kB/9ms)
+25/04/26 14:31:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[INFO] Starting Spark job to consume from Kafka, count offline entities, and write to MinIO
+[INFO] Kafka bootstrap servers: 172.21.6.68:9092
+[INFO] Kafka topic: sparkts
+[INFO] MinIO endpoint: http://172.21.6.68:9000
+[INFO] MinIO bucket: vtrackingsparkwithcountoffline
+[INFO] MinIO path for raw data: parquet
+[INFO] MinIO path for offline counts: offline_entity_counts
+25/04/26 14:31:03 INFO SparkContext: Running Spark version 3.5.5
+25/04/26 14:31:03 INFO SparkContext: OS info Linux, 5.15.0-122-generic, amd64
+25/04/26 14:31:03 INFO SparkContext: Java version 11.0.24
+25/04/26 14:31:03 INFO ResourceUtils: ==============================================================
+25/04/26 14:31:03 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/04/26 14:31:03 INFO ResourceUtils: ==============================================================
+25/04/26 14:31:03 INFO SparkContext: Submitted application: KafkaToMinIOConsumeWithCountOffline
+25/04/26 14:31:03 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/04/26 14:31:03 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+25/04/26 14:31:03 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/04/26 14:31:03 INFO SecurityManager: Changing view acls to: vht
+25/04/26 14:31:03 INFO SecurityManager: Changing modify acls to: vht
+25/04/26 14:31:03 INFO SecurityManager: Changing view acls groups to: 
+25/04/26 14:31:03 INFO SecurityManager: Changing modify acls groups to: 
+25/04/26 14:31:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: vht; groups with view permissions: EMPTY; users with modify permissions: vht; groups with modify permissions: EMPTY
+25/04/26 14:31:04 INFO Utils: Successfully started service 'sparkDriver' on port 42607.
+25/04/26 14:31:04 INFO SparkEnv: Registering MapOutputTracker
+25/04/26 14:31:04 INFO SparkEnv: Registering BlockManagerMaster
+25/04/26 14:31:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/04/26 14:31:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/04/26 14:31:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/04/26 14:31:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4115bae6-0b75-457e-895c-ae3206ea353e
+25/04/26 14:31:04 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/04/26 14:31:04 INFO SparkEnv: Registering OutputCommitCoordinator
+25/04/26 14:31:04 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/04/26 14:31:04 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+25/04/26 14:31:04 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:42607/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://172.21.6.63:42607/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:42607/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar at spark://172.21.6.63:42607/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://172.21.6.63:42607/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://172.21.6.63:42607/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://172.21.6.63:42607/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://172.21.6.63:42607/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://172.21.6.63:42607/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://172.21.6.63:42607/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://172.21.6.63:42607/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://172.21.6.63:42607/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://172.21.6.63:42607/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://172.21.6.63:42607/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://172.21.6.63:42607/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:42607/files/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://172.21.6.63:42607/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.hadoop_hadoop-aws-3.3.4.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:42607/files/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar at spark://172.21.6.63:42607/files/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://172.21.6.63:42607/files/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.kafka_kafka-clients-3.4.1.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://172.21.6.63:42607/files/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/com.google.code.findbugs_jsr305-3.0.0.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://172.21.6.63:42607/files/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.commons_commons-pool2-2.11.1.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://172.21.6.63:42607/files/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://172.21.6.63:42607/files/org.lz4_lz4-java-1.8.0.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.lz4_lz4-java-1.8.0.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://172.21.6.63:42607/files/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.xerial.snappy_snappy-java-1.1.10.3.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://172.21.6.63:42607/files/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.slf4j_slf4j-api-2.0.7.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://172.21.6.63:42607/files/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://172.21.6.63:42607/files/commons-logging_commons-logging-1.1.3.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/commons-logging_commons-logging-1.1.3.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://172.21.6.63:42607/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+25/04/26 14:31:04 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://172.21.6.63:42607/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1745652663717
+25/04/26 14:31:04 INFO Utils: Copying /home/vht/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-7bb71b55-4809-4a2c-b959-8a83cd117a8e/userFiles-cffb55fd-4504-440f-a996-5434c335f7a5/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+25/04/26 14:31:05 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://172.21.6.63:7077...
+25/04/26 14:31:05 INFO TransportClientFactory: Successfully created connection to /172.21.6.63:7077 after 29 ms (0 ms spent in bootstraps)
+25/04/26 14:31:05 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250426143105-0004
+25/04/26 14:31:05 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250426143105-0004/0 on worker-20250426091356-172.21.6.64-39227 (172.21.6.64:39227) with 1 core(s)
+25/04/26 14:31:05 INFO StandaloneSchedulerBackend: Granted executor ID app-20250426143105-0004/0 on hostPort 172.21.6.64:39227 with 1 core(s), 1024.0 MiB RAM
+25/04/26 14:31:05 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41847.
+25/04/26 14:31:05 INFO NettyBlockTransferService: Server created on 172.21.6.63:41847
+25/04/26 14:31:05 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/04/26 14:31:05 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.21.6.63, 41847, None)
+25/04/26 14:31:05 INFO BlockManagerMasterEndpoint: Registering block manager 172.21.6.63:41847 with 434.4 MiB RAM, BlockManagerId(driver, 172.21.6.63, 41847, None)
+25/04/26 14:31:05 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.21.6.63, 41847, None)
+25/04/26 14:31:05 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.21.6.63, 41847, None)
+25/04/26 14:31:05 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250426143105-0004/0 is now RUNNING
+25/04/26 14:31:05 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+25/04/26 14:31:05 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/04/26 14:31:05 INFO SharedState: Warehouse path is 'file:/home/vht/duonghdt/spark-warehouse'.
+[INFO] Spark session created with Hadoop configurations.
+[INFO] Testing if bucket exists: s3a://vtrackingsparkwithcountoffline
+25/04/26 14:31:06 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[INFO] Error checking bucket: An error occurred while calling o46.load.
+: java.lang.AssertionError: assertion failed: Conflicting directory structures detected. Suspicious paths:
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/17
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/53
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/66
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/23
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/172
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/141
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/43
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/33
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/5
+	s3a://vtrackingsparkwithcountoffline/parquet
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/26
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/199
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/161
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/7
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/0/_metadata
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/69
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/198
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/154
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/171
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/88
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/160
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/131
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/169
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/89
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/151
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/106
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/77
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/150
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/16
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/22
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/52
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/1
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/158
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/34
+	s3a://vtrackingsparkwithcountoffline/checkpoints/kafka/offsets
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/144
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/2
+	s3a://vtrackingsparkwithcountoffline/intraday
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/93
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/193
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/165
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/97
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/27
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/182
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/116
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/104
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/187
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/128
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/117
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/21
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/71
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/12
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/6
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/185
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/78
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/101
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/155
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/83
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/40
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/51
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/15
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/124
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/113
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/175
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/147
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/100
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/13
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/110
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/181
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/46
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/3
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/67
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/143
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/138
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/24
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/162
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/183
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/84
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/82
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/85
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/4
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/157
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/126
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/32
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/62
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/37
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/108
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/73
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/139
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/152
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/189
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/119
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/41
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/20
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/65
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/125
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/186
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/167
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/81
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/179
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/192
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/30
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/sources/0
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/86
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/11
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/79
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/191
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/44
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/115
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/70
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/159
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/49
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/178
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/commits
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/107
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/195
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/166
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/133
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/136
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/105
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/95
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/149
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/177
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/45
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/196
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/102
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/137
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/42
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/120
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/56
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/87
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/174
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/63
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/72
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/170
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/98
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/75
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/60
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/35
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/19
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/111
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/74
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/39
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/48
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/134
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/47
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/99
+	s3a://vtrackingsparkwithcountoffline/offline_entity_counts
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/96
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/80
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/122
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/0
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/142
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/68
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/112
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/164
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/54
+	s3a://vtrackingsparkwithcountoffline/checkpoints/kafka
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/145
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/156
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/14
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/90
+	s3a://vtrackingsparkwithcountoffline/checkpoints/kafka/sources/0
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/109
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/64
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/129
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/9
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/146
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/8
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/176
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/36
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/38
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/194
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/94
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/197
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/28
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/153
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/184
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/58
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/55
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/103
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/61
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/offsets
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/180
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/50
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/173
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/10
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/132
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/123
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/163
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/31
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/57
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/148
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/135
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/168
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/188
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/25
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/59
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/121
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/29
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/190
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/76
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/140
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/130
+	s3a://vtrackingsparkwithcountoffline/checkpoints/kafka/commits
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/118
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/91
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/18
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/127
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/114
+	s3a://vtrackingsparkwithcountoffline/checkpoints/offline_counts/state/0/92
+
+If provided paths are partition directories, please set "basePath" in the options of the data source to specify the root directory of the table. If there are multiple root directories, please load them separately and then union them.
+	at scala.Predef$.assert(Predef.scala:279)
+	at org.apache.spark.sql.execution.datasources.PartitioningUtils$.parsePartitions(PartitioningUtils.scala:178)
+	at org.apache.spark.sql.execution.datasources.PartitioningUtils$.parsePartitions(PartitioningUtils.scala:110)
+	at org.apache.spark.sql.execution.datasources.PartitioningAwareFileIndex.inferPartitioning(PartitioningAwareFileIndex.scala:201)
+	at org.apache.spark.sql.execution.datasources.InMemoryFileIndex.partitionSpec(InMemoryFileIndex.scala:75)
+	at org.apache.spark.sql.execution.datasources.PartitioningAwareFileIndex.partitionSchema(PartitioningAwareFileIndex.scala:51)
+	at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:167)
+	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+	at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+	at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:186)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+[INFO] Ensure the bucket exists and is accessible. Continuing...
+[INFO] Reading from Kafka...
+[INFO] Kafka DataFrame created.
+[INFO] Extracted value as string from Kafka DataFrame.
+[INFO] Parsed JSON messages with schema.
+[INFO] Writing offline entity counts to console...
+25/04/26 14:31:23 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-0534ee2e-52f7-41d8-93b1-7d9672381b8d. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+[INFO] Writing offline entity counts to MinIO (s3a://vtrackingsparkwithcountoffline/offline_entity_counts), partitioned by day...
+25/04/26 14:31:23 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[INFO] Writing raw data to MinIO (s3a://vtrackingsparkwithcountoffline/parquet), partitioned by id and day...
+[INFO] Streaming queries started. Waiting for termination...
+25/04/26 14:31:23 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/04/26 14:31:24 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/04/26 14:31:24 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+-------------------------------------------
+Batch: 0
+-------------------------------------------
++---+--------------------+
+|day|offline_entity_count|
++---+--------------------+
++---+--------------------+
+
+-------------------------------------------
+Batch: 1
+-------------------------------------------
++---+--------------------+
+|day|offline_entity_count|
++---+--------------------+
++---+--------------------+
+
+-------------------------------------------
+Batch: 2
+-------------------------------------------
++---+--------------------+
+|day|offline_entity_count|
++---+--------------------+
++---+--------------------+
+
+-------------------------------------------
+Batch: 3
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   4|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 4
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 5
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 6
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 7
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 8
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 9
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 10
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 11
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 12
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 13
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 14
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 15
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 16
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 17
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 18
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 19
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 20
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 21
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 22
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 23
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 24
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 25
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 26
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 27
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 28
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 29
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 30
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 31
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 32
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 33
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 34
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 35
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 36
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 37
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 38
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 39
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 40
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 41
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 42
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 43
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 44
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 45
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 46
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 47
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 48
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 49
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 50
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 51
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 52
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 53
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 54
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 55
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 56
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 57
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 58
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+-------------------------------------------
+Batch: 59
+-------------------------------------------
++----------+--------------------+
+|       day|offline_entity_count|
++----------+--------------------+
+|2025-04-26|                   9|
++----------+--------------------+
+
+25/04/26 16:13:10 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: Master removed our application: KILLED
+25/04/26 16:13:10 ERROR Inbox: Ignoring error
+org.apache.spark.SparkException: Exiting due to error from cluster scheduler: Master removed our application: KILLED
+	at org.apache.spark.errors.SparkCoreErrors$.clusterSchedulerError(SparkCoreErrors.scala:291)
+	at org.apache.spark.scheduler.TaskSchedulerImpl.error(TaskSchedulerImpl.scala:981)
+	at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.dead(StandaloneSchedulerBackend.scala:165)
+	at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint.markDead(StandaloneAppClient.scala:263)
+	at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint$$anonfun$receive$1.applyOrElse(StandaloneAppClient.scala:170)
+	at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:115)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:213)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:100)
+	at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:75)
+	at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:41)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /home/vht/.ivy2/cache
+The jars for the packages stored in: /home/vht/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+org.apache.hadoop#hadoop-aws added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-6a862f37-6597-4b6d-b5b7-6400cec84d9d;1.0
+	confs: [default]
+	found org.apache.spark#spark-sql-kafka-0-10_2.13;3.5.0 in central
+	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;3.5.0 in central
+	found org.apache.kafka#kafka-clients;3.4.1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+	found org.slf4j#slf4j-api;2.0.7 in central
+	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+	found commons-logging#commons-logging;1.1.3 in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.scala-lang.modules#scala-parallel-collections_2.13;1.0.4 in central
+	found org.apache.commons#commons-pool2;2.11.1 in central
+	found org.apache.hadoop#hadoop-aws;3.3.4 in central
+	found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+	found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+:: resolution report :: resolve 500ms :: artifacts dl 14ms
+	:: modules in use:
+	com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	commons-logging#commons-logging;1.1.3 from central in [default]
+	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+	org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.13;3.5.0 from central in [default]
+	org.apache.spark#spark-token-provider-kafka-0-10_2.13;3.5.0 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.scala-lang.modules#scala-parallel-collections_2.13;1.0.4 from central in [default]
+	org.slf4j#slf4j-api;2.0.7 from central in [default]
+	org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   15  |   0   |   0   |   0   ||   15  |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-6a862f37-6597-4b6d-b5b7-6400cec84d9d
+	confs: [default]
+	0 artifacts copied, 15 already retrieved (0kB/8ms)
+25/04/26 16:13:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[INFO] Starting Spark job to consume from Kafka, count offline entities, and write to MinIO
+[INFO] Kafka bootstrap servers: 172.21.6.68:9092
+[INFO] Kafka topic: sparkts
+[INFO] MinIO endpoint: http://172.21.6.68:9000
+[INFO] MinIO bucket: vtrackingsparkwithcountoffline
+[INFO] MinIO path for raw data: parquet
+[INFO] MinIO path for offline counts: offline_entity_counts
+25/04/26 16:13:57 INFO SparkContext: Running Spark version 3.5.5
+25/04/26 16:13:57 INFO SparkContext: OS info Linux, 5.15.0-122-generic, amd64
+25/04/26 16:13:57 INFO SparkContext: Java version 11.0.24
+25/04/26 16:13:57 INFO ResourceUtils: ==============================================================
+25/04/26 16:13:57 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/04/26 16:13:57 INFO ResourceUtils: ==============================================================
+25/04/26 16:13:57 INFO SparkContext: Submitted application: KafkaToMinIOConsumeWithCountOffline
+25/04/26 16:13:57 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/04/26 16:13:57 INFO ResourceProfile: Limiting resource is cpus at 1 tasks per executor
+25/04/26 16:13:57 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/04/26 16:13:58 INFO SecurityManager: Changing view acls to: vht
+25/04/26 16:13:58 INFO SecurityManager: Changing modify acls to: vht
+25/04/26 16:13:58 INFO SecurityManager: Changing view acls groups to: 
+25/04/26 16:13:58 INFO SecurityManager: Changing modify acls groups to: 
+25/04/26 16:13:58 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: vht; groups with view permissions: EMPTY; users with modify permissions: vht; groups with modify permissions: EMPTY
+25/04/26 16:13:58 INFO Utils: Successfully started service 'sparkDriver' on port 40701.
+25/04/26 16:13:58 INFO SparkEnv: Registering MapOutputTracker
+25/04/26 16:13:58 INFO SparkEnv: Registering BlockManagerMaster
+25/04/26 16:13:58 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/04/26 16:13:58 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/04/26 16:13:58 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/04/26 16:13:58 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-b718da06-ed90-4523-ab4a-d79627b759ef
+25/04/26 16:13:58 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/04/26 16:13:58 INFO SparkEnv: Registering OutputCommitCoordinator
+25/04/26 16:13:58 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/04/26 16:13:58 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+25/04/26 16:13:58 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:40701/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://172.21.6.63:40701/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:40701/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar at spark://172.21.6.63:40701/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://172.21.6.63:40701/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://172.21.6.63:40701/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://172.21.6.63:40701/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://172.21.6.63:40701/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://172.21.6.63:40701/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://172.21.6.63:40701/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://172.21.6.63:40701/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://172.21.6.63:40701/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://172.21.6.63:40701/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://172.21.6.63:40701/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added JAR file:///home/vht/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://172.21.6.63:40701/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:40701/files/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.spark_spark-sql-kafka-0-10_2.13-3.5.0.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://172.21.6.63:40701/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.hadoop_hadoop-aws-3.3.4.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar at spark://172.21.6.63:40701/files/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.spark_spark-token-provider-kafka-0-10_2.13-3.5.0.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar at spark://172.21.6.63:40701/files/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.scala-lang.modules_scala-parallel-collections_2.13-1.0.4.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://172.21.6.63:40701/files/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.kafka_kafka-clients-3.4.1.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://172.21.6.63:40701/files/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/com.google.code.findbugs_jsr305-3.0.0.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://172.21.6.63:40701/files/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.commons_commons-pool2-2.11.1.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://172.21.6.63:40701/files/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://172.21.6.63:40701/files/org.lz4_lz4-java-1.8.0.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.lz4_lz4-java-1.8.0.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://172.21.6.63:40701/files/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.xerial.snappy_snappy-java-1.1.10.3.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://172.21.6.63:40701/files/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.slf4j_slf4j-api-2.0.7.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://172.21.6.63:40701/files/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://172.21.6.63:40701/files/commons-logging_commons-logging-1.1.3.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/commons-logging_commons-logging-1.1.3.jar
+25/04/26 16:13:58 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://172.21.6.63:40701/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1745658837902
+25/04/26 16:13:58 INFO Utils: Copying /home/vht/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+25/04/26 16:13:59 INFO SparkContext: Added file file:///home/vht/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://172.21.6.63:40701/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1745658837902
+25/04/26 16:13:59 INFO Utils: Copying /home/vht/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-7f647c89-ad59-4390-93e7-28412db3b6f7/userFiles-d9b4aee8-6df8-4411-a6b2-d725ee4b805c/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+25/04/26 16:13:59 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://172.21.6.63:7077...
+25/04/26 16:13:59 INFO TransportClientFactory: Successfully created connection to /172.21.6.63:7077 after 32 ms (0 ms spent in bootstraps)
+25/04/26 16:13:59 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250426161359-0005
+25/04/26 16:13:59 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250426161359-0005/0 on worker-20250426091356-172.21.6.64-39227 (172.21.6.64:39227) with 1 core(s)
+25/04/26 16:13:59 INFO StandaloneSchedulerBackend: Granted executor ID app-20250426161359-0005/0 on hostPort 172.21.6.64:39227 with 1 core(s), 1024.0 MiB RAM
+25/04/26 16:13:59 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37827.
+25/04/26 16:13:59 INFO NettyBlockTransferService: Server created on 172.21.6.63:37827
+25/04/26 16:13:59 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/04/26 16:13:59 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 172.21.6.63, 37827, None)
+25/04/26 16:13:59 INFO BlockManagerMasterEndpoint: Registering block manager 172.21.6.63:37827 with 434.4 MiB RAM, BlockManagerId(driver, 172.21.6.63, 37827, None)
+25/04/26 16:13:59 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 172.21.6.63, 37827, None)
+25/04/26 16:13:59 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 172.21.6.63, 37827, None)
+25/04/26 16:13:59 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250426161359-0005/0 is now RUNNING
+25/04/26 16:13:59 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+25/04/26 16:13:59 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/04/26 16:13:59 INFO SharedState: Warehouse path is 'file:/home/vht/duonghdt/spark-warehouse'.
+[INFO] Spark session created with Hadoop configurations.
+[INFO] Testing if bucket exists: s3a://vtrackingsparkwithcountoffline
+25/04/26 16:14:00 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[INFO] Successfully connected to bucket. Found 0 files.
+[INFO] Reading from Kafka...
+[INFO] Kafka DataFrame created.
+[INFO] Extracted value as string from Kafka DataFrame.
+[INFO] Parsed JSON messages with schema.
+[INFO] Writing offline entity counts to console...
+25/04/26 16:14:07 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-e921ee81-b069-4e30-8e04-1b6b04e5982a. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+[INFO] Writing offline entity counts to MinIO (s3a://vtrackingsparkwithcountoffline/offline_entity_counts), partitioned by day...
+25/04/26 16:14:08 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[INFO] Writing raw data to MinIO (s3a://vtrackingsparkwithcountoffline/parquet), partitioned by id and day...
+25/04/26 16:14:08 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[INFO] Streaming queries started. Waiting for termination...
+25/04/26 16:14:09 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/04/26 16:14:09 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+-------------------------------------------
+Batch: 0
+-------------------------------------------
++---+--------------------+
+|day|offline_entity_count|
++---+--------------------+
++---+--------------------+
+
